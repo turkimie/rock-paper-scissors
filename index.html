@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors</title>
+</head>
+<body>
+  <script>
+    const options = ["rock", "paper", "scissors"];
+    let computerSelection;
+    let playerSelection;
+    let playerScore = 0;
+    let computerScore = 0;
+
+    function playRound(playerSelection, computerSelection) {
+      computerSelection = options[Math.floor(Math.random() * options.length)];
+      playerSelection = prompt("Choose").toLowerCase();
+      if(playerSelection =="rock" || playerSelection =="paper" || playerSelection =="scissors") {
+        if (playerSelection === computerSelection) {
+        alert(`It's a tie! Score: You ${playerScore}-${computerScore} Computer`);
+        }
+        else if (playerSelection == "rock" && computerSelection == "paper") {
+          computerScore++;
+          alert(`You lost! Your choice: ${playerSelection}, computer's choice: ${computerSelection}.
+          Score: You ${playerScore}-${computerScore} Computer`);
+        }
+        else if (playerSelection == "rock" && computerSelection == "scissors") {
+          playerScore++;
+          alert(`You won! Your choice: ${playerSelection}, computer's choice: ${computerSelection}.
+          Score: You ${playerScore}-${computerScore} Computer`);
+        }
+        else if (playerSelection == "paper" && computerSelection == "rock") {
+          playerScore++;
+          alert(`You won! Your choice: ${playerSelection}, computer's choice: ${computerSelection}.
+          Score: You ${playerScore}-${computerScore} Computer`);
+        }
+        else if (playerSelection == "paper" && computerSelection == "scissors") {
+          computerScore++;
+          alert(`You lost! Your choice: ${playerSelection}, computer's choice: ${computerSelection}.
+          Score: You ${playerScore}-${computerScore} Computer`);
+        }
+        else if (playerSelection == "scissors" && computerSelection == "rock") {
+          computerScore++;
+          alert(`You lost! Your choice: ${playerSelection}, computer's choice: ${computerSelection}.
+          Score: You ${playerScore}-${computerScore} Computer`);
+        }
+        else if (playerSelection == "scissors" && computerSelection == "paper") {
+          playerScore++;
+          alert(`You won! Your choice: ${playerSelection}, computer's choice: ${computerSelection}.
+          Score: You ${playerScore}-${computerScore} Computer`);
+        }
+      }
+      else {
+        alert("Choose between rock, paper and scissors");
+      }
+      
+    }
+    function game() {
+      for (i = 0; i < 5; i++) {
+        playRound(playerSelection, computerSelection);
+      }
+      if (playerScore > computerScore) {
+        alert(`You won the game! Final Score: You ${playerScore}-${computerScore} Computer`);
+      }
+      else  if (playerScore > computerScore) {
+        alert(`You lost the game! Final Score: You ${playerScore}-${computerScore} Computer`);
+      }
+
+      else {
+        alert(`It's a tie! Final Score: You ${playerScore}-${computerScore} Computer`)
+      }
+    }
+    game();
+  </script>
+  
+</body>
+</html>
